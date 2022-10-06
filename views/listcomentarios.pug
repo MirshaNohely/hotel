@@ -1,0 +1,17 @@
+extends ./layout/index.pug
+block compartircontenido 
+    h1 #{pagina}
+    main.container.mt-5 
+        .row 
+            each comentario in comentarios 
+                .col-md.col-lg-4.mv-4 
+                    .card 
+                        img.card-img-top(src=`img/${comentario.png}`)
+                        .card-body 
+                            h3=comentario.id 
+                            p 
+                            | # {comentario.opinion}
+                            blockquote 
+                            a(href = `/modificarCom?id=${comentario.id}`,class="btn btn-sucess btn-clock") Modificar
+                            a(href = `/eliminar?id=${comentario.id}`,class="btn btn-danger btn-clock") Eliminar
+                            
